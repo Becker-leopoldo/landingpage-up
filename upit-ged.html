@@ -120,21 +120,40 @@ footer p{font-size:12px;color:var(--t3)}
 .flinks a:hover{color:var(--t2)}
 @media(max-width:600px){.nav-cta span{display:none}}
 
-/* doc stack visual */
-.doc-visual{position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:1;pointer-events:none;width:220px}
-@media(max-width:900px){
+/* GED intelligence visual */
+.ged-visual{position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:1;pointer-events:none;width:360px;filter:drop-shadow(0 28px 52px rgba(0,0,0,.35))}
+@media(max-width:980px){
   .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-  .doc-visual{display:none}
+  .ged-visual{display:none}
 }
-.doc-card{background:var(--card2);border:1px solid var(--pu-border);border-radius:10px;padding:12px 14px;margin-bottom:-8px;font-size:11px}
-.doc-card:nth-child(1){transform:rotate(-3deg);opacity:.5;margin-bottom:-20px}
-.doc-card:nth-child(2){transform:rotate(-1deg);opacity:.75;margin-bottom:-20px}
-.doc-card:nth-child(3){transform:rotate(0deg);opacity:1;animation:float 4s ease-in-out infinite}
-.doc-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pu);margin-bottom:4px}
-.doc-name{font-size:12px;font-weight:600;color:var(--t1)}
-.doc-meta{font-size:10px;color:var(--t3);margin-top:3px}
-.doc-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(100,220,140,.12);border:1px solid rgba(100,220,140,.25);border-radius:4px;padding:2px 7px;font-size:10px;color:#64dc8c;font-weight:700;margin-top:6px}
+.ged-panel{position:relative;background:linear-gradient(145deg,rgba(26,26,48,.96),rgba(12,12,24,.98));border:1px solid var(--pu-border);border-radius:18px;padding:18px;overflow:visible;animation:float 5s ease-in-out infinite}
+.ged-panel::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 72% 18%,rgba(198,103,245,.18),transparent 36%);pointer-events:none}
+.ged-head{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.ged-title{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(198,103,245,.9)}
+.ged-live{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;color:#64dc8c;background:rgba(100,220,140,.1);border:1px solid rgba(100,220,140,.22);border-radius:999px;padding:3px 8px}
+.ged-live::before{content:'';width:6px;height:6px;border-radius:50%;background:#64dc8c;box-shadow:0 0 10px rgba(100,220,140,.8)}
+.ged-stage{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:12px}
+.ged-doc{min-height:184px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:13px;padding:14px}
+.ged-paper{height:150px;border-radius:9px;background:linear-gradient(180deg,rgba(240,236,250,.92),rgba(202,194,222,.88));padding:13px 12px;box-shadow:inset 0 -18px 24px rgba(8,8,16,.12)}
+.ged-line{height:5px;border-radius:5px;background:rgba(32,25,50,.28);margin-bottom:8px}
+.ged-line:nth-child(1){width:70%}.ged-line:nth-child(2){width:92%}.ged-line:nth-child(3){width:78%}.ged-line:nth-child(4){width:58%}
+.ged-stamp{display:inline-flex;margin-top:10px;border:1px solid rgba(198,103,245,.5);color:#7b2bb7;border-radius:5px;padding:3px 7px;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;transform:rotate(-5deg)}
+.ged-scan{height:2px;background:linear-gradient(90deg,transparent,#64dc8c,transparent);margin-top:-88px;animation:scan 3s ease-in-out infinite}
+.ged-side{display:flex;flex-direction:column;gap:8px}
+.ged-box{background:rgba(8,8,16,.58);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:10px}
+.ged-box-label{font-size:8px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--t3);margin-bottom:5px}
+.ged-box-value{font-size:12px;font-weight:800;color:var(--t1);line-height:1.2}
+.ged-box small{display:block;font-size:10px;color:var(--t3);margin-top:3px;line-height:1.35}
+.ged-score{height:5px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;margin-top:8px}
+.ged-score span{display:block;height:100%;width:96%;background:linear-gradient(90deg,#64dc8c,var(--pu));border-radius:inherit}
+.ged-flow{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.ged-step{background:rgba(198,103,245,.08);border:1px solid rgba(198,103,245,.16);border-radius:10px;padding:9px 8px}
+.ged-step strong{display:block;font-size:10px;color:var(--t1);line-height:1.2}
+.ged-step span{display:block;font-size:9px;color:var(--t3);margin-top:2px}
+.ged-chip{position:absolute;right:16px;bottom:-18px;background:rgba(100,220,140,.12);border:1px solid rgba(100,220,140,.28);border-radius:10px;padding:8px 11px;color:#64dc8c;font-size:10px;font-weight:800;animation:chipfloat 4s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes scan{0%,100%{transform:translateY(0);opacity:.25}50%{transform:translateY(92px);opacity:1}}
+@keyframes chipfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 
 .also{background:var(--bg2);padding:56px clamp(20px,5vw,72px);border-top:1px solid rgba(198,103,245,.08)}
 .also-inner{max-width:1100px;margin:0 auto}
@@ -175,10 +194,48 @@ footer p{font-size:12px;color:var(--t3)}
         <div class="trust-item">LGPD compliant</div>
       </div>
     </div>
-    <div class="doc-visual" aria-hidden="true">
-      <div class="doc-card"><div class="doc-label">Contrato</div><div class="doc-name">Contrato_Fornecedor_2026.pdf</div><div class="doc-meta">Vigência: 12/2026 · v3.1</div></div>
-      <div class="doc-card"><div class="doc-label">NF-e</div><div class="doc-name">NF_00842_MarçO.xml</div><div class="doc-meta">R$ 18.400 · CNPJ validado</div></div>
-      <div class="doc-card"><div class="doc-label">Laudo técnico</div><div class="doc-name">Laudo_Inspecao_042.pdf</div><div class="doc-meta">Aprovado · 3 aprovadores<div class="doc-badge">✓ Digitalizado</div></div></div>
+    <div class="ged-visual" aria-hidden="true">
+      <div class="ged-panel">
+        <div class="ged-head">
+          <div class="ged-title">GED UP IT · Documento vivo</div>
+          <div class="ged-live">indexando</div>
+        </div>
+        <div class="ged-stage">
+          <div class="ged-doc">
+            <div class="ged-paper">
+              <div class="ged-line"></div>
+              <div class="ged-line"></div>
+              <div class="ged-line"></div>
+              <div class="ged-line"></div>
+              <div class="ged-stamp">LGPD OK</div>
+            </div>
+            <div class="ged-scan"></div>
+          </div>
+          <div class="ged-side">
+            <div class="ged-box">
+              <div class="ged-box-label">Classificação</div>
+              <div class="ged-box-value">Contrato fornecedor</div>
+              <small>extraído por OCR + LLM</small>
+            </div>
+            <div class="ged-box">
+              <div class="ged-box-label">Metadados</div>
+              <div class="ged-box-value">CNPJ · Vigência · Valor</div>
+              <small>campos prontos para busca</small>
+            </div>
+            <div class="ged-box">
+              <div class="ged-box-label">Confiança</div>
+              <div class="ged-box-value">96%</div>
+              <div class="ged-score"><span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ged-flow">
+          <div class="ged-step"><strong>Captura</strong><span>scanner, e-mail, API</span></div>
+          <div class="ged-step"><strong>Workflow</strong><span>3 aprovadores</span></div>
+          <div class="ged-step"><strong>Arquivo</strong><span>auditável e seguro</span></div>
+        </div>
+        <div class="ged-chip">✓ trilha de auditoria criada</div>
+      </div>
     </div>
   </div>
 </section>
