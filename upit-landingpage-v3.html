@@ -36,6 +36,7 @@
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+:where(a,button,.btn,.nav-cta,.nav-back,.also-card,.contact-point):focus-visible{outline:2px solid rgba(198,103,245,.7);outline-offset:3px}
 
 /* ── NAV ── */
 nav{
@@ -315,7 +316,23 @@ footer p{font-size:13px;color:var(--t3)}
 /* WA icon */
 .ico-wa{width:16px;height:16px;fill:currentColor;flex-shrink:0}
 
-@media(max-width:600px){.nav-links{display:none}.hero-stats{gap:24px}}
+@media(max-width:600px){
+  nav{height:auto;min-height:64px;align-items:flex-start;gap:12px;padding-top:12px;padding-bottom:12px}
+  .nav-logo img{height:26px}
+  .nav-cta{padding:8px 12px;font-size:13px}
+  .nav-links{
+    order:3;display:flex;width:100%;gap:8px;
+    overflow-x:auto;scrollbar-width:none;padding-top:2px;
+  }
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{
+    display:block;white-space:nowrap;
+    padding:6px 10px;border:1px solid rgba(255,255,255,.08);
+    border-radius:7px;background:rgba(255,255,255,.03);font-size:12px;
+  }
+  .hero{padding-top:148px}
+  .hero-stats{gap:24px}
+}
 
 /* landing hero visual */
 .hero-visual{position:absolute;right:clamp(10px,4vw,60px);top:50%;transform:translateY(-50%);z-index:1;pointer-events:none;width:420px}
