@@ -123,10 +123,10 @@
     }
 
     .hero {
-      min-height: 78vh;
+      min-height: 80vh;
       display: flex;
       align-items: center;
-      padding: 112px clamp(20px, 5vw, 72px) 72px;
+      padding: 120px clamp(20px, 5vw, 72px) 80px;
       position: relative;
       overflow: hidden
     }
@@ -157,8 +157,8 @@
       width: 100%;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 80px;
+      grid-template-columns: minmax(0, 1fr) 430px;
+      gap: 72px;
       align-items: center
     }
 
@@ -824,6 +824,17 @@
       .nav-cta span {
         display: none
       }
+
+      .hero-actions {
+        width: 100%
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+        white-space: normal;
+        text-align: center
+      }
     }
 
 
@@ -983,13 +994,12 @@
 
     /* agentes hero visual */
     .hero-agt-visual {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 1;
+      position: relative;
+      z-index: 2;
       pointer-events: none;
-      width: 290px
+      width: 100%;
+      display: flex;
+      justify-content: center
     }
 
     @media(max-width:900px) {
@@ -1003,9 +1013,222 @@
       }
     }
 
-    .agt-svg-wrap {
-      filter: drop-shadow(0 0 28px rgba(198, 103, 245, .2));
+    .agent-console {
+      position: relative;
+      width: min(100%, 350px);
+      height: 480px;
+      border: 1px solid rgba(198, 103, 245, .22);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(14, 14, 28, .94), rgba(7, 7, 14, .98));
+      box-shadow: 0 28px 70px rgba(0, 0, 0, .42), inset 0 0 0 1px rgba(255, 255, 255, .03);
+      overflow: hidden;
+      filter: drop-shadow(0 0 28px rgba(198, 103, 245, .16));
       animation: agtfloat 4.5s ease-in-out infinite
+    }
+
+    .agent-console::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(198, 103, 245, .055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(198, 103, 245, .055) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: radial-gradient(circle at 58% 36%, black 20%, transparent 74%)
+    }
+
+    .agent-console::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 68% 22%, rgba(198, 103, 245, .22), transparent 36%),
+        radial-gradient(circle at 18% 82%, rgba(100, 220, 140, .12), transparent 28%);
+      pointer-events: none
+    }
+
+    .console-head,
+    .console-body,
+    .console-foot {
+      position: relative;
+      z-index: 2
+    }
+
+    .console-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .console-kicker {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: rgba(198, 103, 245, .82)
+    }
+
+    .console-title {
+      margin-top: 4px;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--t1);
+      line-height: 1.15
+    }
+
+    .console-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(100, 220, 140, .22);
+      background: rgba(100, 220, 140, .08);
+      color: #64dc8c;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      white-space: nowrap
+    }
+
+    .console-live::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #64dc8c;
+      box-shadow: 0 0 14px rgba(100, 220, 140, .75);
+      animation: agtPulse 1.4s ease-in-out infinite
+    }
+
+    .console-body {
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .agent-step {
+      display: grid;
+      grid-template-columns: 30px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 12px;
+      background: rgba(8, 8, 16, .74);
+      backdrop-filter: blur(12px);
+      transform-origin: center;
+      animation: stepGlow 7s ease-in-out infinite
+    }
+
+    .agent-step:nth-child(2) {
+      animation-delay: .8s
+    }
+
+    .agent-step:nth-child(3) {
+      animation-delay: 1.6s
+    }
+
+    .agent-step:nth-child(4) {
+      animation-delay: 2.4s
+    }
+
+    .agent-step:nth-child(5) {
+      animation-delay: 3.2s
+    }
+
+    .step-ico {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--pu-dim);
+      border: 1px solid var(--pu-border);
+      font-size: 14px
+    }
+
+    .step-name {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--t1);
+      line-height: 1.2
+    }
+
+    .step-desc {
+      margin-top: 2px;
+      font-size: 10px;
+      color: var(--t3);
+      line-height: 1.35
+    }
+
+    .step-tag {
+      font-size: 8px;
+      font-weight: 800;
+      color: rgba(198, 103, 245, .9);
+      background: var(--pu-dim);
+      border-radius: 5px;
+      padding: 4px 6px;
+      text-transform: uppercase;
+      white-space: nowrap
+    }
+
+    .console-foot {
+      margin: 0 20px 18px;
+      padding: 12px;
+      border-radius: 13px;
+      background: rgba(8, 8, 16, .78);
+      border: 1px solid rgba(198, 103, 245, .16)
+    }
+
+    .console-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px
+    }
+
+    .console-metric {
+      padding: 8px 8px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .035);
+      text-align: center
+    }
+
+    .console-metric strong {
+      display: block;
+      font-size: 14px;
+      color: var(--t1);
+      line-height: 1
+    }
+
+    .console-metric span {
+      display: block;
+      margin-top: 4px;
+      font-size: 8px;
+      color: var(--t3);
+      text-transform: uppercase;
+      letter-spacing: .08em
+    }
+
+    .console-progress {
+      height: 4px;
+      margin-top: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .07);
+      overflow: hidden
+    }
+
+    .console-progress span {
+      display: block;
+      height: 100%;
+      width: 58%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--pu), #64dc8c);
+      animation: agtProgress 4s ease-in-out infinite
     }
 
     @keyframes agtfloat {
@@ -1017,6 +1240,46 @@
 
       50% {
         transform: translateY(-10px)
+      }
+    }
+
+    @keyframes agtPulse {
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: .35
+      }
+    }
+
+    @keyframes stepGlow {
+      0%,
+      100% {
+        border-color: rgba(255, 255, 255, .07);
+        transform: translateX(0)
+      }
+
+      12% {
+        border-color: rgba(198, 103, 245, .34);
+        transform: translateX(4px)
+      }
+
+      24% {
+        border-color: rgba(255, 255, 255, .07);
+        transform: translateX(0)
+      }
+    }
+
+    @keyframes agtProgress {
+      0%,
+      100% {
+        width: 42%
+      }
+
+      50% {
+        width: 86%
       }
     }
   </style>
@@ -1045,15 +1308,15 @@
         <div class="svc-eyebrow">
           <div class="svc-eyebrow-icon">🤖</div><span>Serviço · AI Skills &amp; Agentes</span>
         </div>
-        <h1>Automação com<br><span class="pu">Agentes de IA</span></h1>
-        <p class="hero-desc">Execução inteligente de tarefas sem gargalos. Agentes com Skills especializadas que planejam,
-          decidem e agem de ponta a ponta — orquestrados com curadoria humana onde o risco exige.</p>
+        <h1>Agentes de IA que<br><span class="pu">executam processos</span></h1>
+        <p class="hero-desc">Criamos agentes com Skills, integrações e supervisão humana para automatizar workflows reais:
+          ler dados, validar regras, decidir próximos passos e acionar sistemas.</p>
         <div class="hero-actions">
           <a href="https://wa.me/5511992052669?text=Olá%2C+Up+It!+Tenho+interesse+em+Automação+com+Agentes+de+IA."
             class="btn btn-fill" target="_blank" rel="noopener noreferrer"><svg class="ico-wa" viewBox="0 0 24 24">
               <path
                 d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.83L0 24l6.335-1.661A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.001-1.374l-.358-.213-3.761.986 1.003-3.669-.234-.377A9.795 9.795 0 012.182 12C2.182 6.59 6.59 2.182 12 2.182S21.818 6.59 21.818 12 17.41 21.818 12 21.818z" />
-            </svg>Quero um automatizar com agentes</a>
+            </svg>Mapear meu primeiro agente</a>
           <a href="#skills" class="btn btn-ghost">Ver AI Skills ↓</a>
         </div>
         <div class="trust-strip">
@@ -1064,143 +1327,66 @@
         </div>
       </div>
       <div class="hero-agt-visual" aria-hidden="true">
-      <div class="agt-svg-wrap">
-        <svg width="290" height="400" viewBox="0 0 290 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="agtglow">
-              <feGaussianBlur stdDeviation="3" result="b" />
-              <feMerge>
-                <feMergeNode in="b" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-            <marker id="agtarr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-              <path d="M0,0 L6,3 L0,6 Z" fill="rgba(198,103,245,0.5)" />
-            </marker>
-          </defs>
-          <circle cx="145" cy="140" r="36" fill="rgba(198,103,245,0.08)" stroke="rgba(198,103,245,0.35)"
-            stroke-width="1.5" filter="url(#agtglow)" />
-          <circle cx="145" cy="140" r="36" fill="none" stroke="rgba(198,103,245,0.5)" stroke-width="1.5" opacity="0">
-            <animate attributeName="r" values="36;50;36" dur="3s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite" />
-          </circle>
-          <circle cx="145" cy="140" r="22" fill="rgba(198,103,245,0.15)" stroke="rgba(198,103,245,0.5)"
-            stroke-width="1" />
-          <text x="145" y="135" font-size="9" fill="#f0ecfa" font-family="DM Sans,sans-serif" font-weight="700"
-            text-anchor="middle">ORQUES-</text>
-          <text x="145" y="147" font-size="9" fill="#f0ecfa" font-family="DM Sans,sans-serif" font-weight="700"
-            text-anchor="middle">TRADOR</text>
-          <circle cx="145" cy="40" r="24" fill="rgba(100,180,255,0.1)" stroke="rgba(100,180,255,0.35)"
-            stroke-width="1.5" />
-          <circle cx="145" cy="40" r="24" fill="none" stroke="rgba(100,180,255,0.6)" stroke-width="1" opacity="0">
-            <animate attributeName="r" values="24;32;24" dur="2.2s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.6;0;0.6" dur="2.2s" repeatCount="indefinite" />
-          </circle>
-          <text x="145" y="36" font-size="8" fill="#64b4ff" font-family="DM Sans,sans-serif" font-weight="700"
-            text-anchor="middle">Skill</text>
-          <text x="145" y="46" font-size="8" fill="#64b4ff" font-family="DM Sans,sans-serif"
-            text-anchor="middle">Leitura</text>
-          <circle cx="248" cy="105" r="24" fill="rgba(198,103,245,0.1)" stroke="rgba(198,103,245,0.35)"
-            stroke-width="1.5" />
-          <circle cx="248" cy="105" r="24" fill="none" stroke="rgba(198,103,245,0.6)" stroke-width="1" opacity="0">
-            <animate attributeName="r" values="24;32;24" dur="2.8s" begin="0.5s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.6;0;0.6" dur="2.8s" begin="0.5s" repeatCount="indefinite" />
-          </circle>
-          <text x="248" y="101" font-size="8" fill="rgba(198,103,245,0.9)" font-family="DM Sans,sans-serif"
-            font-weight="700" text-anchor="middle">Skill</text>
-          <text x="248" y="111" font-size="8" fill="rgba(198,103,245,0.9)" font-family="DM Sans,sans-serif"
-            text-anchor="middle">Validação</text>
-          <circle cx="240" cy="200" r="24" fill="rgba(240,180,60,0.08)" stroke="rgba(240,180,60,0.3)"
-            stroke-width="1.5" />
-          <circle cx="240" cy="200" r="24" fill="none" stroke="rgba(240,180,60,0.5)" stroke-width="1" opacity="0">
-            <animate attributeName="r" values="24;32;24" dur="2.5s" begin="1s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.6;0;0.6" dur="2.5s" begin="1s" repeatCount="indefinite" />
-          </circle>
-          <text x="240" y="196" font-size="8" fill="#f0b43c" font-family="DM Sans,sans-serif" font-weight="700"
-            text-anchor="middle">Skill</text>
-          <text x="240" y="206" font-size="8" fill="#f0b43c" font-family="DM Sans,sans-serif"
-            text-anchor="middle">Decisão</text>
-          <circle cx="145" cy="245" r="24" fill="rgba(100,220,140,0.08)" stroke="rgba(100,220,140,0.3)"
-            stroke-width="1.5" />
-          <circle cx="145" cy="245" r="24" fill="none" stroke="rgba(100,220,140,0.5)" stroke-width="1" opacity="0">
-            <animate attributeName="r" values="24;32;24" dur="2.1s" begin="1.5s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.6;0;0.6" dur="2.1s" begin="1.5s" repeatCount="indefinite" />
-          </circle>
-          <text x="145" y="241" font-size="8" fill="#64dc8c" font-family="DM Sans,sans-serif" font-weight="700"
-            text-anchor="middle">Skill</text>
-          <text x="145" y="251" font-size="8" fill="#64dc8c" font-family="DM Sans,sans-serif"
-            text-anchor="middle">Notificação</text>
-          <circle cx="42" cy="105" r="24" fill="rgba(240,100,100,0.08)" stroke="rgba(240,100,100,0.28)"
-            stroke-width="1.5" />
-          <circle cx="42" cy="105" r="24" fill="none" stroke="rgba(240,130,130,0.5)" stroke-width="1" opacity="0">
-            <animate attributeName="r" values="24;32;24" dur="3.2s" begin="0.8s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.6;0;0.6" dur="3.2s" begin="0.8s" repeatCount="indefinite" />
-          </circle>
-          <text x="42" y="101" font-size="8" fill="rgba(240,130,130,0.9)" font-family="DM Sans,sans-serif"
-            font-weight="700" text-anchor="middle">Skill</text>
-          <text x="42" y="111" font-size="8" fill="rgba(240,130,130,0.9)" font-family="DM Sans,sans-serif"
-            text-anchor="middle">Escalada</text>
-          <circle cx="50" cy="200" r="24" fill="rgba(200,120,240,0.08)" stroke="rgba(200,120,240,0.28)"
-            stroke-width="1.5" />
-          <circle cx="50" cy="200" r="24" fill="none" stroke="rgba(200,120,240,0.5)" stroke-width="1" opacity="0">
-            <animate attributeName="r" values="24;32;24" dur="2.6s" begin="1.2s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.6;0;0.6" dur="2.6s" begin="1.2s" repeatCount="indefinite" />
-          </circle>
-          <text x="50" y="196" font-size="8" fill="rgba(200,120,240,0.9)" font-family="DM Sans,sans-serif"
-            font-weight="700" text-anchor="middle">Skill</text>
-          <text x="50" y="206" font-size="8" fill="rgba(200,120,240,0.9)" font-family="DM Sans,sans-serif"
-            text-anchor="middle">Integração</text>
-          <line x1="145" y1="104" x2="145" y2="64" stroke="rgba(100,180,255,0.3)" stroke-width="1.5"
-            marker-end="url(#agtarr)" />
-          <circle r="3" fill="#64b4ff">
-            <animateMotion path="M145,104 L145,64" dur="1.5s" repeatCount="indefinite" />
-          </circle>
-          <line x1="178" y1="122" x2="224" y2="108" stroke="rgba(198,103,245,0.3)" stroke-width="1.5"
-            marker-end="url(#agtarr)" />
-          <circle r="3" fill="#c667f5">
-            <animateMotion path="M178,122 L224,108" dur="1.8s" begin="0.3s" repeatCount="indefinite" />
-          </circle>
-          <line x1="174" y1="160" x2="216" y2="188" stroke="rgba(240,180,60,0.3)" stroke-width="1.5"
-            marker-end="url(#agtarr)" />
-          <circle r="3" fill="#f0b43c">
-            <animateMotion path="M174,160 L216,188" dur="2s" begin="0.6s" repeatCount="indefinite" />
-          </circle>
-          <line x1="145" y1="176" x2="145" y2="221" stroke="rgba(100,220,140,0.35)" stroke-width="1.5"
-            marker-end="url(#agtarr)" />
-          <circle r="3" fill="#64dc8c">
-            <animateMotion path="M145,176 L145,221" dur="1.6s" begin="0.9s" repeatCount="indefinite" />
-          </circle>
-          <line x1="112" y1="122" x2="66" y2="108" stroke="rgba(240,100,100,0.25)" stroke-width="1.5"
-            marker-end="url(#agtarr)" />
-          <circle r="3" fill="rgba(240,130,130,0.9)">
-            <animateMotion path="M112,122 L66,108" dur="2.2s" begin="1.2s" repeatCount="indefinite" />
-          </circle>
-          <line x1="114" y1="160" x2="74" y2="188" stroke="rgba(200,120,240,0.25)" stroke-width="1.5"
-            marker-end="url(#agtarr)" />
-          <circle r="3" fill="rgba(200,120,240,0.9)">
-            <animateMotion path="M114,160 L74,188" dur="1.9s" begin="1.5s" repeatCount="indefinite" />
-          </circle>
-          <rect x="10" y="288" width="268" height="82" rx="10" fill="rgba(10,10,20,0.92)" stroke="rgba(198,103,245,0.2)"
-            stroke-width="1" />
-          <text x="24" y="308" font-size="9" fill="rgba(198,103,245,0.7)" font-family="DM Sans,sans-serif"
-            font-weight="700" letter-spacing="1">STATUS DO WORKFLOW</text>
-          <circle cx="24" cy="325" r="4" fill="#64dc8c">
-            <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
-          </circle>
-          <text x="34" y="329" font-size="10" fill="#64dc8c" font-family="DM Sans,sans-serif" font-weight="600">NF
-            processada automaticamente</text>
-          <circle cx="24" cy="344" r="4" fill="#64b4ff">
-            <animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.5s" repeatCount="indefinite" />
-          </circle>
-          <text x="34" y="348" font-size="10" fill="#64b4ff" font-family="DM Sans,sans-serif">Aguardando validação
-            ERP...</text>
-          <circle cx="24" cy="361" r="4" fill="rgba(255,255,255,0.15)" />
-          <text x="34" y="365" font-size="10" fill="rgba(168,158,196,0.5)" font-family="DM Sans,sans-serif">Lançamento
-            no sistema</text>
-          <ellipse cx="145" cy="390" rx="110" ry="15" fill="rgba(198,103,245,0.1)" />
-        </svg>
+        <div class="agent-console">
+          <div class="console-head">
+            <div>
+              <div class="console-kicker">Workflow em execução</div>
+              <div class="console-title">Entrada de NF + validação ERP</div>
+            </div>
+            <div class="console-live">ao vivo</div>
+          </div>
+          <div class="console-body">
+            <div class="agent-step">
+              <div class="step-ico">✉️</div>
+              <div>
+                <div class="step-name">NF recebida por e-mail</div>
+                <div class="step-desc">Gatilho automático detectado pelo agente</div>
+              </div>
+              <div class="step-tag">entrada</div>
+            </div>
+            <div class="agent-step">
+              <div class="step-ico">📖</div>
+              <div>
+                <div class="step-name">Leitura do XML + PDF</div>
+                <div class="step-desc">Skill extrai CNPJ, valores, impostos e itens</div>
+              </div>
+              <div class="step-tag">skill</div>
+            </div>
+            <div class="agent-step">
+              <div class="step-ico">🔗</div>
+              <div>
+                <div class="step-name">Consulta no ERP</div>
+                <div class="step-desc">Pedido de compra e regras fiscais validados</div>
+              </div>
+              <div class="step-tag">api</div>
+            </div>
+            <div class="agent-step">
+              <div class="step-ico">✅</div>
+              <div>
+                <div class="step-name">Decisão com rastreabilidade</div>
+                <div class="step-desc">Aprova, reprova ou escala para revisão humana</div>
+              </div>
+              <div class="step-tag">decisão</div>
+            </div>
+            <div class="agent-step">
+              <div class="step-ico">📣</div>
+              <div>
+                <div class="step-name">Lançamento + notificação</div>
+                <div class="step-desc">Sistema atualizado e financeiro avisado</div>
+              </div>
+              <div class="step-tag">ação</div>
+            </div>
+          </div>
+          <div class="console-foot">
+            <div class="console-metrics">
+              <div class="console-metric"><strong>92%</strong><span>confiança</span></div>
+              <div class="console-metric"><strong>3m</strong><span>execução</span></div>
+              <div class="console-metric"><strong>1</strong><span>revisão</span></div>
+            </div>
+            <div class="console-progress"><span></span></div>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   </section>
 
