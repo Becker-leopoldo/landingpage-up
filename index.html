@@ -315,31 +315,28 @@ footer p{font-size:13px;color:var(--t3)}
 /* landing hero accent */
 .hero-visual{position:relative;z-index:1;pointer-events:none;width:100%;height:480px;display:flex;align-items:center;justify-content:center}
 @media(max-width:1000px){.hero-visual{display:none}}
-.lp-console-wrap{position:relative;width:100%;height:480px;display:flex;align-items:center;justify-content:center;animation:lpfloat 5s ease-in-out infinite;filter:drop-shadow(0 28px 56px rgba(0,0,0,.36))}
-.lp-console-wrap::before{content:'';position:absolute;inset:62px 8px 38px;background:linear-gradient(135deg,rgba(100,180,255,.08),rgba(198,103,245,.13) 46%,rgba(100,220,140,.06));border:1px solid rgba(198,103,245,.14);transform:perspective(640px) rotateY(-10deg) rotateX(3deg);opacity:.7}
-.lp-console-panel{position:relative;width:min(100%,380px);padding:24px;border-radius:18px;background:linear-gradient(180deg,rgba(17,17,32,.78),rgba(8,8,16,.68));border:1px solid rgba(198,103,245,.3);box-shadow:0 0 70px rgba(198,103,245,.12),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(18px) saturate(1.2);overflow:hidden}
-.lp-console-panel::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(180deg,black,transparent 76%);pointer-events:none}
-.lp-console-head,.lp-console-row,.lp-console-foot{position:relative}
-.lp-console-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px}
-.lp-console-kicker{display:block;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(198,103,245,.82);margin-bottom:4px}
-.lp-console-head strong{font-size:20px;line-height:1.1;color:var(--t1);letter-spacing:-.2px}
-.lp-live-dot{width:11px;height:11px;border-radius:50%;background:#c667f5;box-shadow:0 0 0 7px rgba(198,103,245,.12),0 0 24px rgba(198,103,245,.8);margin-top:5px}
-.lp-console-row{display:grid;grid-template-columns:52px minmax(0,1fr) 58px;gap:14px;align-items:center;min-height:78px;padding:13px;margin-top:12px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08)}
-.lp-console-row.ai{background:rgba(198,103,245,.075);border-color:rgba(198,103,245,.22)}
-.lp-console-row.auto{background:rgba(100,180,255,.065);border-color:rgba(100,180,255,.2)}
-.lp-console-row.sys{background:rgba(100,220,140,.065);border-color:rgba(100,220,140,.2)}
-.lp-console-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--t1);border:1px solid rgba(255,255,255,.12)}
-.ai .lp-console-icon{background:rgba(198,103,245,.16);color:#dba2ff;border-color:rgba(198,103,245,.34)}
-.auto .lp-console-icon{background:rgba(100,180,255,.13);color:#64b4ff;border-color:rgba(100,180,255,.32)}
-.sys .lp-console-icon{background:rgba(100,220,140,.12);color:#64dc8c;border-color:rgba(100,220,140,.3)}
-.lp-console-copy strong{display:block;font-size:12px;line-height:1;color:var(--t1);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lp-console-copy span{display:block;font-size:11px;line-height:1.25;color:rgba(168,158,196,.78);margin-top:7px}
-.lp-bars{height:40px;display:flex;align-items:flex-end;justify-content:flex-end;gap:3px}
-.lp-bars span{display:block;width:4px;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,#64b4ff,#c667f5);opacity:.84}
-.lp-bars span:nth-child(1){height:14px}.lp-bars span:nth-child(2){height:22px}.lp-bars span:nth-child(3){height:17px}.lp-bars span:nth-child(4){height:30px}.lp-bars span:nth-child(5){height:25px}
-.lp-meter{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #64dc8c;color:#64dc8c;font-size:10px;font-weight:800;box-shadow:0 0 24px rgba(100,220,140,.18)}
-.lp-console-foot{display:flex;align-items:center;justify-content:space-between;margin-top:20px;color:rgba(168,158,196,.76);font-size:11px}
-.lp-console-dots{display:flex;gap:8px}.lp-console-dots span{width:8px;height:8px;border-radius:50%;background:#c667f5}.lp-console-dots span:nth-child(2){background:#64b4ff}.lp-console-dots span:nth-child(3){background:#64dc8c}
+.lp-ecosystem-wrap{position:relative;width:100%;max-width:430px;height:480px;animation:lpfloat 5s ease-in-out infinite;filter:drop-shadow(0 28px 56px rgba(0,0,0,.36))}
+.lp-ecosystem-wrap::before{content:'';position:absolute;inset:48px 8px 38px;border-radius:24px;background:linear-gradient(135deg,rgba(100,180,255,.06),rgba(198,103,245,.12) 48%,rgba(100,220,140,.05));border:1px solid rgba(198,103,245,.12);transform:perspective(680px) rotateY(-9deg) rotateX(3deg);opacity:.8}
+.lp-ecosystem-ring,.lp-ecosystem-ring::before,.lp-ecosystem-ring::after{position:absolute;left:50%;top:50%;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}
+.lp-ecosystem-ring{width:280px;height:280px;border:1px solid rgba(198,103,245,.18)}
+.lp-ecosystem-ring::before{content:'';width:214px;height:214px;border:1px dashed rgba(100,180,255,.18)}
+.lp-ecosystem-ring::after{content:'';width:340px;height:340px;border:1px solid rgba(100,220,140,.08)}
+.lp-solution-hub{position:absolute;left:50%;top:50%;width:154px;height:154px;transform:translate(-50%,-50%);border-radius:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,rgba(198,103,245,.2),rgba(8,8,16,.72));border:1px solid rgba(198,103,245,.42);box-shadow:0 0 64px rgba(198,103,245,.22),inset 0 1px 0 rgba(255,255,255,.1);backdrop-filter:blur(18px) saturate(1.25)}
+.lp-solution-hub span{font-size:11px;font-weight:800;letter-spacing:.12em;color:#dba2ff;text-transform:uppercase}
+.lp-solution-hub strong{font-size:18px;line-height:1.05;color:var(--t1);margin-top:9px;letter-spacing:-.2px}
+.lp-solution-hub small{font-size:10px;line-height:1.25;color:rgba(168,158,196,.82);margin-top:8px}
+.lp-solution-tile{position:absolute;width:128px;min-height:58px;padding:11px 12px;border-radius:14px;background:rgba(8,8,16,.62);border:1px solid rgba(255,255,255,.09);box-shadow:0 14px 44px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px) saturate(1.15)}
+.lp-solution-tile::before{content:'';position:absolute;width:7px;height:7px;border-radius:50%;left:12px;top:13px;background:#c667f5;box-shadow:0 0 18px currentColor}
+.lp-solution-tile strong{display:block;font-size:11px;line-height:1;color:var(--t1);letter-spacing:.05em;text-transform:uppercase;padding-left:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lp-solution-tile span{display:block;font-size:10px;line-height:1.25;color:rgba(168,158,196,.76);margin-top:8px}
+.lp-tile-web{left:151px;top:38px;border-color:rgba(100,180,255,.2)}.lp-tile-web::before{background:#64b4ff;color:#64b4ff}
+.lp-tile-ai{right:4px;top:128px;border-color:rgba(198,103,245,.24)}.lp-tile-ai::before{background:#c667f5;color:#c667f5}
+.lp-tile-auto{right:18px;bottom:110px;border-color:rgba(100,220,140,.2)}.lp-tile-auto::before{background:#64dc8c;color:#64dc8c}
+.lp-tile-mobile{left:151px;bottom:38px;border-color:rgba(100,180,255,.18)}.lp-tile-mobile::before{background:#64b4ff;color:#64b4ff}
+.lp-tile-ged{left:5px;bottom:110px;border-color:rgba(198,103,245,.2)}.lp-tile-ged::before{background:#c667f5;color:#c667f5}
+.lp-tile-int{left:18px;top:128px;border-color:rgba(100,220,140,.18)}.lp-tile-int::before{background:#64dc8c;color:#64dc8c}
+.lp-ecosystem-line{position:absolute;left:50%;top:50%;width:1px;height:160px;transform-origin:top;background:linear-gradient(180deg,rgba(198,103,245,.48),transparent)}
+.lp-ecosystem-line:nth-of-type(1){transform:rotate(0deg)}.lp-ecosystem-line:nth-of-type(2){transform:rotate(60deg)}.lp-ecosystem-line:nth-of-type(3){transform:rotate(120deg)}.lp-ecosystem-line:nth-of-type(4){transform:rotate(180deg)}.lp-ecosystem-line:nth-of-type(5){transform:rotate(240deg)}.lp-ecosystem-line:nth-of-type(6){transform:rotate(300deg)}
 @keyframes lpfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
 </style>
@@ -393,34 +390,21 @@ footer p{font-size:13px;color:var(--t3)}
       </div>
     </div>
     <div class="hero-visual" aria-hidden="true">
-      <div class="lp-console-wrap">
-        <div class="lp-console-panel">
-          <div class="lp-console-head">
-            <div>
-              <span class="lp-console-kicker">Operação inteligente</span>
-              <strong>Infra ativa</strong>
-            </div>
-            <span class="lp-live-dot"></span>
-          </div>
-          <div class="lp-console-row ai">
-            <div class="lp-console-icon">IA</div>
-            <div class="lp-console-copy"><strong>IA ativa</strong><span>Modelos operando com eficiência</span></div>
-            <div class="lp-bars"><span></span><span></span><span></span><span></span><span></span></div>
-          </div>
-          <div class="lp-console-row auto">
-            <div class="lp-console-icon">AUTO</div>
-            <div class="lp-console-copy"><strong>Automações</strong><span>Fluxos em execução 24/7</span></div>
-            <div class="lp-bars"><span></span><span></span><span></span><span></span><span></span></div>
-          </div>
-          <div class="lp-console-row sys">
-            <div class="lp-console-icon">SYS</div>
-            <div class="lp-console-copy"><strong>Sistemas</strong><span>Infraestrutura online</span></div>
-            <div class="lp-meter">100%</div>
-          </div>
-          <div class="lp-console-foot">
-            <span>Monitoramento contínuo</span>
-            <div class="lp-console-dots"><span></span><span></span><span></span></div>
-          </div>
+      <div class="lp-ecosystem-wrap">
+        <span class="lp-ecosystem-line"></span>
+        <span class="lp-ecosystem-line"></span>
+        <span class="lp-ecosystem-line"></span>
+        <span class="lp-ecosystem-line"></span>
+        <span class="lp-ecosystem-line"></span>
+        <span class="lp-ecosystem-line"></span>
+        <div class="lp-ecosystem-ring"></div>
+        <div class="lp-solution-hub"><span>UP IT</span><strong>Orquestração</strong><small>Soluções conectadas</small></div>
+        <div class="lp-solution-tile lp-tile-web"><strong>Sistemas</strong><span>Plataformas sob medida</span></div>
+        <div class="lp-solution-tile lp-tile-ai"><strong>IA</strong><span>Modelos aplicados</span></div>
+        <div class="lp-solution-tile lp-tile-auto"><strong>Automação</strong><span>Fluxos inteligentes</span></div>
+        <div class="lp-solution-tile lp-tile-mobile"><strong>Mobile</strong><span>Apps corporativos</span></div>
+        <div class="lp-solution-tile lp-tile-ged"><strong>GED</strong><span>Dados e documentos</span></div>
+        <div class="lp-solution-tile lp-tile-int"><strong>Integrações</strong><span>Operação conectada</span></div>
         </div>
       </div>
     </div>
