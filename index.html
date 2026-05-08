@@ -327,10 +327,38 @@ footer p{font-size:13px;color:var(--t3)}
   .hero-stats{gap:24px}
 }
 
-/* landing hero visual */
-.hero-visual{position:absolute;right:clamp(10px,4vw,60px);top:50%;transform:translateY(-50%);z-index:1;pointer-events:none;width:420px}
+/* landing hero accent */
+.hero-visual{
+  position:absolute;right:clamp(24px,7vw,116px);bottom:clamp(72px,11vh,128px);
+  top:auto;transform:none;z-index:1;pointer-events:none;width:min(420px,32vw);height:auto;
+}
 @media(max-width:1000px){.hero-visual{display:none}}
-.lp-svg-wrap{filter:drop-shadow(0 0 40px rgba(198,103,245,.15));animation:lpfloat 5s ease-in-out infinite}
+.lp-svg-wrap{display:none}
+.lp-flow-panel{
+  padding:14px 16px 16px;border-radius:10px;
+  background:rgba(8,8,16,.62);border:1px solid rgba(198,103,245,.24);
+  box-shadow:0 24px 80px rgba(0,0,0,.38),0 0 48px rgba(198,103,245,.08);
+  backdrop-filter:blur(18px) saturate(1.2);
+  animation:lpfloat 5s ease-in-out infinite;
+}
+.lp-flow-title{
+  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(198,103,245,.82);margin-bottom:10px;
+}
+.lp-flow-steps{display:grid;grid-template-columns:1fr 16px 1fr 16px 1fr 16px .62fr;gap:8px;align-items:center}
+.lp-flow-step{
+  min-width:0;height:38px;border-radius:7px;padding:0 10px;
+  display:flex;flex-direction:column;justify-content:center;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+}
+.lp-flow-step strong{font-size:10px;line-height:1;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lp-flow-step span{font-size:7px;line-height:1;color:rgba(168,158,196,.72);margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lp-flow-step.info{border-color:rgba(100,180,255,.22);background:rgba(100,180,255,.08)}
+.lp-flow-step.auto{border-color:rgba(198,103,245,.24);background:rgba(198,103,245,.09)}
+.lp-flow-step.ok{border-color:rgba(100,220,140,.22);background:rgba(100,220,140,.08)}
+.lp-flow-step.ok strong{color:#64dc8c}
+.lp-flow-arrow{height:1px;background:linear-gradient(90deg,rgba(198,103,245,.18),rgba(198,103,245,.7));position:relative}
+.lp-flow-arrow::after{content:'';position:absolute;right:-1px;top:-3px;border-left:6px solid rgba(198,103,245,.7);border-top:3.5px solid transparent;border-bottom:3.5px solid transparent}
 @keyframes lpfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
 </style>
@@ -391,6 +419,18 @@ footer p{font-size:13px;color:var(--t3)}
       </div>
     </div>
     <div class="hero-visual" aria-hidden="true">
+      <div class="lp-flow-panel">
+        <div class="lp-flow-title">Fluxo inteligente</div>
+        <div class="lp-flow-steps">
+          <div class="lp-flow-step info"><strong>Entrada</strong><span>dados + docs</span></div>
+          <div class="lp-flow-arrow"></div>
+          <div class="lp-flow-step auto"><strong>Automação</strong><span>IA + regras</span></div>
+          <div class="lp-flow-arrow"></div>
+          <div class="lp-flow-step ok"><strong>Decisão</strong><span>ROI medido</span></div>
+          <div class="lp-flow-arrow"></div>
+          <div class="lp-flow-step ok"><strong>OK</strong><span>ativo</span></div>
+        </div>
+      </div>
       <div class="lp-svg-wrap">
         <svg width="420" height="500" viewBox="0 0 420 500" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
