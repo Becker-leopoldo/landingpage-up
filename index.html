@@ -75,14 +75,6 @@ nav{
     radial-gradient(ellipse 40% 40% at 18% 72%, rgba(198,103,245,.09) 0%, transparent 60%),
     url("assets/hero-tech-bg.png") center/cover no-repeat;
 }
-.hero-grid{
-  position:absolute;inset:0;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(198,103,245,.06) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(198,103,245,.06) 1px,transparent 1px);
-  background-size:48px 48px;
-  mask-image:radial-gradient(ellipse 80% 75% at 60% 40%, black 30%,transparent 80%);
-}
 .hero-inner{
   position:relative;z-index:1;max-width:1200px;width:100%;margin:0 auto;
   display:grid;grid-template-columns:minmax(0,1fr) 430px;gap:72px;align-items:center;
@@ -363,7 +355,6 @@ footer p{font-size:13px;color:var(--t3)}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
   <div class="hero-inner">
     <div>
       <h1>Tecnologia que <span class="pu">liberta,</span><br>estratégia que <span class="pu">escala!</span></h1>
