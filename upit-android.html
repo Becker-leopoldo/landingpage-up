@@ -138,18 +138,11 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: radial-gradient(ellipse 55% 55% at 72% 38%, rgba(198, 103, 245, .13) 0%, transparent 65%),
-        radial-gradient(ellipse 30% 35% at 12% 72%, rgba(198, 103, 245, .07) 0%, transparent 60%);
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image: linear-gradient(rgba(198, 103, 245, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(198, 103, 245, .05) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(ellipse 70% 70% at 65% 35%, black 20%, transparent 75%);
+      background: linear-gradient(90deg, rgba(8, 8, 16, .96) 0%, rgba(8, 8, 16, .88) 42%, rgba(8, 8, 16, .62) 72%, rgba(8, 8, 16, .82) 100%),
+        linear-gradient(180deg, rgba(8, 8, 16, .9) 0%, rgba(8, 8, 16, .45) 50%, rgba(8, 8, 16, .92) 100%),
+        radial-gradient(ellipse 55% 55% at 72% 38%, rgba(198, 103, 245, .13) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 35% at 12% 72%, rgba(198, 103, 245, .07) 0%, transparent 60%),
+        url("assets/hero-android-bg.png") center/cover no-repeat;
     }
 
     /* phone mockup */

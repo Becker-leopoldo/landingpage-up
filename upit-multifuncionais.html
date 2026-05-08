@@ -26,12 +26,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .ico-wa{width:15px;height:15px;fill:currentColor;flex-shrink:0}
 .hero{min-height:80vh;display:flex;align-items:center;padding:120px clamp(20px,5vw,72px) 80px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 55% 55% at 72% 38%,rgba(198,103,245,.13) 0%,transparent 65%),
-             radial-gradient(ellipse 30% 35% at 12% 72%,rgba(198,103,245,.07) 0%,transparent 60%);}
-.hero::after{content:'';position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(198,103,245,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(198,103,245,.05) 1px,transparent 1px);
-  background-size:48px 48px;
-  mask-image:radial-gradient(ellipse 70% 70% at 65% 35%,black 20%,transparent 75%);}
+  background:linear-gradient(90deg,rgba(8,8,16,.96) 0%,rgba(8,8,16,.88) 42%,rgba(8,8,16,.62) 72%,rgba(8,8,16,.82) 100%),
+             linear-gradient(180deg,rgba(8,8,16,.9) 0%,rgba(8,8,16,.45) 50%,rgba(8,8,16,.92) 100%),
+             radial-gradient(ellipse 55% 55% at 72% 38%,rgba(198,103,245,.13) 0%,transparent 65%),
+             radial-gradient(ellipse 30% 35% at 12% 72%,rgba(198,103,245,.07) 0%,transparent 60%),
+             url("assets/hero-multifuncionais-bg.png") center/cover no-repeat;}
 .hero-inner{position:relative;z-index:2;max-width:1200px;width:100%;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 430px;gap:72px;align-items:center}
 .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--t3);margin-bottom:20px;animation:up .6s ease both}
 .breadcrumb a{color:var(--t3);text-decoration:none;transition:color .2s}
