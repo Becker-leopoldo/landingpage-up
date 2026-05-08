@@ -69,8 +69,11 @@ nav{
 .hero-bg{
   position:absolute;inset:0;pointer-events:none;
   background:
-    radial-gradient(ellipse 55% 55% at 75% 35%, rgba(198,103,245,.13) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 40% at 18% 72%, rgba(198,103,245,.07) 0%, transparent 60%);
+    linear-gradient(90deg, rgba(8,8,16,.96) 0%, rgba(8,8,16,.9) 34%, rgba(8,8,16,.66) 68%, rgba(8,8,16,.82) 100%),
+    linear-gradient(180deg, rgba(8,8,16,.88) 0%, rgba(8,8,16,.28) 46%, rgba(8,8,16,.92) 100%),
+    radial-gradient(ellipse 55% 55% at 75% 35%, rgba(198,103,245,.2) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 18% 72%, rgba(198,103,245,.09) 0%, transparent 60%),
+    url("assets/hero-tech-bg.png") center/cover no-repeat;
 }
 .hero-grid{
   position:absolute;inset:0;pointer-events:none;
